@@ -1,4 +1,6 @@
 <?php
+require_once('includes.php');
+//session_start();
 Class CFormGet{
     public $newvar = 0;
     public static $verbose = False;
@@ -35,13 +37,14 @@ Class CFormGet{
 
 }
 ?>
-
 <?php
-
-
-$formget = new CFormGet;
+//print 'session status get '.$_SESSION["status"].'<br />';
+/*$formget = new CFormGet;
 foreach ($_POST as $key => $value)
-    print ($value.'<br />');
-
-
+print ($value.'<br />');*/
+$_SESSION["user"]=$_POST['email'];
+$_SESSION["valide"]='ok';
+//print ('session : '.$_SESSION["user"].'<br />');
+if ($_SESSION["valide"]=='ok') {header('Location: index.php');}
+//header('index.php');
 ?>

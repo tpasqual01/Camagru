@@ -76,9 +76,10 @@ Class CForm{
 
 
 }
-?>
 
-<?php
+
+/*
+
 
 
 $TabForm = array();
@@ -100,6 +101,5 @@ $a = new CFormPrint('test');
 $a->FormPrint('Inscriptions', $TabForm);
 
 //var_dump($TabForm);
-
-
+*/
 ?>
