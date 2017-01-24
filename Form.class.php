@@ -58,13 +58,13 @@ Class CForm{
 
     public  function InputMail($labelFor, $labelTitre, $id)
     {
-        return('<INPUT type="mail" name="'. $id.'" id="'. $id.'" value="'.$value.'">');
+        return('<INPUT type="mail" name="'. $id.'" id="'. $id.'" value="'.$value.'" placeholder=" exemple@domain.com" required>');
         // !$id || !$labelFor
     }
 
 	public  function InputPassword($labelFor, $labelTitre, $id)
     {
-        return('<INPUT type="password" name="'. $id.'" id="'. $id.'">');
+        return('<INPUT type="password" name="'. $id.'" id="'. $id.'" required>');
         // !$id || !$labelFor
     }
 
