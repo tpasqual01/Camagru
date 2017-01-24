@@ -41,51 +41,37 @@ Class CForm{
     }
    public  function Form($uri, $class, $method )
     {
-        print('<FORM class="'.$class.'" action="'. $uri.'" method="'.$method.'">');
+        return('<FORM class="'.$class.'" action="'. $uri.'" method="'.$method.'">');
         // !$uri || !$method
-        return;
+    }
+
+    public  function InputLabel($labelFor, $labelTitre, $id)
+    {
+        return('<LABEL for="'.$labelFor.'">'. $labelTitre."</LABEL>");
     }
 
     public  function InputText($labelFor, $labelTitre, $id)
     {
-        print('<tr>');
-        print('<td><LABEL for="'.$labelFor.'">'. $labelTitre."</LABEL>"."</td>");
-        //if (isset($_POST[$id])) $value = $_POST[$id]; else $value ="";
-        print('<td><INPUT type="text" name="'. $id.'" id="'. $id.'" value="'.$value.'"></td>');
-        print('</tr>');
+        return('<INPUT type="text" name="'. $id.'" id="'. $id.'" value="'.$value.'">');
         // !$id || !$labelFor
-        return;
     }
 
-        public  function InputMail($labelFor, $labelTitre, $id)
+    public  function InputMail($labelFor, $labelTitre, $id)
     {
-        print('<tr>');
-        print('<td><LABEL for="'.$labelFor.'">'. $labelTitre."</LABEL>"."</td>");
-        //if (isset($_POST[$id])) $value = $_POST[$id]; else $value ="";
-        print('<td><INPUT type="mail" name="'. $id.'" id="'. $id.'" value="'.$value.'">'."</td>");
-        print('</tr>');
+        return('<INPUT type="mail" name="'. $id.'" id="'. $id.'" value="'.$value.'">');
         // !$id || !$labelFor
-        return;
     }
 
-        public  function InputPassword($labelFor, $labelTitre, $id)
+	public  function InputPassword($labelFor, $labelTitre, $id)
     {
-        print('<tr>');
-        print('<td><LABEL for="'.$labelFor.'">'. $labelTitre."</LABEL></td>");
-        print('<td><INPUT type="password" name="'. $id.'" id="'. $id.'"></td>');
-        print('</tr>');
+        return('<INPUT type="password" name="'. $id.'" id="'. $id.'">');
         // !$id || !$labelFor
-        return;
     }
 
-        public  function Submit($Titre)
+	public  function Submit($Titre)
     {   
-        print('<tr>');
-        print('<td><INPUT type="submit" value="'. $Titre.'"></td>');
-        print ('<td></td></tr></table>');
-
+        return('<INPUT type="submit" value="'. $Titre.'">');
         // !$id || !$labelFor
-        return;
     }
 
 
@@ -95,14 +81,25 @@ Class CForm{
 <?php
 
 
+$TabForm = array();
+
 $inscription = new CForm;
-$inscription->FormTitre('Inscription');
-$inscription->Form('FormGet.class.php', 'Form', 'POST');
-$inscription->InputText("Nom", "Votre Nom", "Nom");
-$inscription->InputText("Prenom", "Votre Prénom", "Prenom");
-$inscription->InputMail("Mail", "Votre Mail", "Mail");
-$inscription->InputPassword("Password", "Password", "Password");
-$inscription->Submit("Envoyer");
+$TabForm[] = $inscription->Form('FormGet.class.php', 'Form', 'POST');
+$TabForm[] = $inscription->InputLabel("Nom", "Votre Nom", "Nom");
+$TabForm[] = $inscription->InputText("Nom", "Votre Nom", "Nom");
+$TabForm[] = $inscription->InputLabel("Prenom", "Votre Prénom", "Prenom");
+$TabForm[] = $inscription->InputText("Prenom", "Votre Prénom", "Prenom");
+$TabForm[] = $inscription->InputLabel("Mail", "Votre Mail", "Mail");
+$TabForm[] = $inscription->InputMail("email", "Votre Mail", "email");
+$TabForm[] = $inscription->InputLabel("Password", "Password", "Password");
+$TabForm[] = $inscription->InputPassword("Password", "Password", "Password");
+$TabForm[] = $inscription->Submit("Envoyer");
+
+include_once ('FormPrint.class.php');
+$a = new CFormPrint('test');
+$a->FormPrint('Inscriptions', $TabForm);
+
+//var_dump($TabForm);
 
 
 ?>

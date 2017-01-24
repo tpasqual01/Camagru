@@ -1,0 +1,30 @@
+
+body {
+	margin : 0px ;
+	padding : 0px;
+	color: #000000;
+	background-color:#FFFFFF;
+/*background-image:  url('images/fond.jpg'); 
+background-position: 0 0; 
+background-attachment:fixed;
+background-repeat:repeat; */
+	font-family: 'Titillium Web', sans-serif;
+	font-family: 'Open Sans', sans-serif;
+}
+
+h1	{
+	text-align: center;
+	font-size: 2.5vw;
+	color: white;
+	}
+
+h2	{
+	color: #000000;
+	margin: 0;
+	font-size: 3vw;
+	}
+
+
+p	{
+	font-size: 0.8vw;
+	}
