@@ -50,19 +50,19 @@ Class CForm{
         return('<LABEL for="'.$labelFor.'">'. $labelTitre."</LABEL>");
     }
 
-    public  function InputText($labelFor, $labelTitre, $id)
+    public  function InputText($Titre, $id)
     {
         return('<INPUT type="text" name="'. $id.'" id="'. $id.'" value="'.$value.'">');
         // !$id || !$labelFor
     }
 
-    public  function InputMail($labelFor, $labelTitre, $id)
+    public  function InputMail($Titre, $id)
     {
-        return('<INPUT type="mail" name="'. $id.'" id="'. $id.'" value="'.$value.'" placeholder=" exemple@domain.com" required>');
+        return('<INPUT type="mail" name="'. $id.'" id="'. $id.'" value="'.$value.'" placeholder=" yourname@domain.com" alt="Email servira au login" required>');
         // !$id || !$labelFor
     }
 
-	public  function InputPassword($labelFor, $labelTitre, $id)
+	public  function InputPassword($Titre, $id)
     {
         return('<INPUT type="password" name="'. $id.'" id="'. $id.'" required>');
         // !$id || !$labelFor
@@ -86,13 +86,13 @@ $TabForm = array();
 $inscription = new CForm;
 $TabForm[] = $inscription->Form('FormGet.class.php', 'Form', 'POST');
 $TabForm[] = $inscription->InputLabel("Nom", "Votre Nom", "Nom");
-$TabForm[] = $inscription->InputText("Nom", "Votre Nom", "Nom");
+$TabForm[] = $inscription->InputText("Votre Nom", "Nom");
 $TabForm[] = $inscription->InputLabel("Prenom", "Votre Prénom", "Prenom");
-$TabForm[] = $inscription->InputText("Prenom", "Votre Prénom", "Prenom");
+$TabForm[] = $inscription->InputText("Votre Prénom", "Prenom");
 $TabForm[] = $inscription->InputLabel("Mail", "Votre Mail", "Mail");
-$TabForm[] = $inscription->InputMail("email", "Votre Mail", "email");
+$TabForm[] = $inscription->InputMail("Votre Mail", "email");
 $TabForm[] = $inscription->InputLabel("Password", "Password", "Password");
-$TabForm[] = $inscription->InputPassword("Password", "Password", "Password");
+$TabForm[] = $inscription->InputPassword("Password", "Password");
 $TabForm[] = $inscription->Submit("Envoyer");
 
 include_once ('FormPrint.class.php');
