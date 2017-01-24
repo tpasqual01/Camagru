@@ -33,11 +33,13 @@ Class CFormPrint{
     {
     	print ('<h2 class="FormTitre">'.$Titre.'</h2>');
     	print($Tab[0]);
+    	print('<p>');
         print('<table>');
         for ($key = 1; $key <=count($Tab);$key = $key + 2)
-			echo '<tr><td>'.$Tab[$key].'</td><td>'.$Tab[$key + 1].'</td></tr>';
+			echo '<tr><td>'.'<p>'.$Tab[$key].'</p>'.'</td><td>'.$Tab[$key + 1].'</td></tr>';
         print('</table>');
         print('</form>');
+        print('</p>');
         return;
     }
 }
